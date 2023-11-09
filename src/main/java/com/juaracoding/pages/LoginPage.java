@@ -24,7 +24,7 @@ public class LoginPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginBtn;
 
-    @FindBy(xpath = "//span[normalize-space()='Admin TMS']")
+    @FindBy(xpath = "//*[@id=\"header\"]/ul/li/a")
     private WebElement profile;
 
     @FindBy(xpath = "//a[normalize-space()='Log Out']")
@@ -36,7 +36,7 @@ public class LoginPage {
     @FindBy(xpath = "//b[normalize-space()='DIKA']")
     private WebElement meetLogin;
 
-    @FindBy(xpath = "//*[@id=\"page-container\"]/div/div[1]/text()")
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissable']")
     private WebElement wrongInput;
 
     @FindBy(xpath = "//h1[@class='page-header']")
@@ -55,6 +55,7 @@ public class LoginPage {
     }
 
     public void setProfile(){
+        DriverSingleton.delay(3);
         this.profile.click();
     }
 
@@ -76,5 +77,9 @@ public class LoginPage {
 
     public String getDashboard(){
         return dashboard.getText();
+    }
+
+    public String getAttributFill(){
+        return username.getAttribute("required");
     }
 }

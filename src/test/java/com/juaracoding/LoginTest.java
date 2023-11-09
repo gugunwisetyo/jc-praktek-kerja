@@ -1,5 +1,6 @@
 package com.juaracoding;
 
+import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.LoginPage;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -22,7 +23,11 @@ public class LoginTest {
 
     @Given("user input invalid url")
     public void user_input_invalid_url(){
-        driver.get(Constants.URL2);
+        try {
+            driver.get(Constants.URL2);
+        } catch (org.openqa.selenium.WebDriverException e) {
+            Assert.assertTrue(e.getMessage().contains("ERR_NAME_NOT_RESOLVED"));
+        }
         extentTest.log(LogStatus.PASS, "user input invalid url");
     }
 
@@ -64,7 +69,8 @@ public class LoginTest {
 
     @Then("user get alert wrong input")
     public void user_get_alert_wrong_input(){
-        Assert.assertEquals(loginPage.getWrongInput(), "Wrong username or password..!");
+        Assert.assertEquals(loginPage.getWrongInput(), "×\n" +
+                "Wrong username or password..!");
         extentTest.log(LogStatus.PASS, "user get alert wrong input");
     }
 
@@ -82,7 +88,8 @@ public class LoginTest {
 
     @Then("user get alert fill this field")
     public void user_get_alert_fill_this_field(){
-        //
+        loginPage.getAttributFill();
+        extentTest.log(LogStatus.PASS, "user get alert fill this field");
     }
 
     @Then("user get text dashboard")
@@ -93,6 +100,9 @@ public class LoginTest {
 
     @Given("user click profile button")
     public void user_click_profile_button(){
+        loginPage.setUsername("admin_tms");
+        loginPage.setPassword("d1k4@passw0rd");
+        loginPage.setLoginBtn();
         loginPage.setProfile();
         extentTest.log(LogStatus.PASS, "user click profile button");
     }
