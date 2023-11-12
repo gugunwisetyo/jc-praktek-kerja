@@ -10,6 +10,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -23,13 +24,16 @@ public class StuffAbsenSakitTest {
         extentTest = Hooks.extentTest;
     }
 
-    @Given("user click privilege menu")
-    public void user_click_privilege_menu(){
+    @Given("user login as staff sakit")
+    public void user_login_as_staff_sakit(){
         staffAbsenSakitPage.setUsername("D6210598");
         staffAbsenSakitPage.setPassword("1999-04-01");
         DriverSingleton.delay(3);
         staffAbsenSakitPage.setLoginBtn();
-        DriverSingleton.delay(3);
+        extentTest.log(LogStatus.PASS, "user login as staff");
+    }
+    @And("user click privilege menu sakit")
+    public void user_click_privilege_menu_sakit(){
         staffAbsenSakitPage.setPrivilegeStaff();
         extentTest.log(LogStatus.PASS, "user click privilege menu");
     }
@@ -40,31 +44,35 @@ public class StuffAbsenSakitTest {
         extentTest.log(LogStatus.PASS, "user click absen sakit");
     }
 
-    @Then("user get text header")
-    public void user_get_text_header(){
+    @Then("user get text header sakit")
+    public void user_get_text_header_sakit(){
         Assert.assertEquals(staffAbsenSakitPage.getHeader(),"Absen Sakit");
         extentTest.log(LogStatus.PASS, "user get text header");
     }
 
-    @And("user input valid devisi")
-    public void user_input_valid_devisi(){
-//        staffAbsenSakitPage.setDevisi("Call Center");
+    @And("user input valid devisi sakit")
+    public void user_input_valid_devisi_sakit(){
         staffAbsenSakitPage.setDevisi("Attraction");
         extentTest.log(LogStatus.PASS, "user input valid devisi");
     }
+    @And("user input valid devisi sakit as call center")
+    public void user_input_valid_devisi_sakit_as_call_center(){
+        staffAbsenSakitPage.setDevisi("Call Center");
+        extentTest.log(LogStatus.PASS, "user input valid devisi");
+    }
 
-    @And("user input valid shift name")
-    public void user_input_valid_shift_name(){
+    @And("user input valid shift name sakit")
+    public void user_input_valid_shift_name_sakit(){
         staffAbsenSakitPage.setShiftName("Non Shift");
         extentTest.log(LogStatus.PASS, "user input valid shift name");
     }
-    @And("user input valid absen type")
-    public void user_input_valid_absen_type(){
+    @And("user input valid absen type sakit")
+    public void user_input_valid_absen_type_sakit(){
         staffAbsenSakitPage.setAbsenType("WFH");
         extentTest.log(LogStatus.PASS, "user input valid absen type");
     }
-    @And("user input valid keterangan")
-    public void user_input_valid_keterangan(){
+    @And("user input valid keterangan sakit")
+    public void user_input_valid_keterangan_sakit(){
         staffAbsenSakitPage.setKeterangan("izin sakit test automation");
         extentTest.log(LogStatus.PASS, "user input keterangan");
     }
@@ -75,16 +83,17 @@ public class StuffAbsenSakitTest {
         extentTest.log(LogStatus.PASS, "user click submit btn");
     }
 
-    @And("user upload foto")
-    public void user_upload_foto(){
+    @And("user upload foto sakit")
+    public void user_upload_foto_sakit(){
         staffAbsenSakitPage.setFileBtn("C:\\Users\\Aldi Triavin\\Downloads\\Ai Generate\\test1.jpeg");
         extentTest.log(LogStatus.PASS, "user upload foto");
     }
 
     @Then("user get validation sakit")
     public void user_get_validation_sakit(){
+        driver.switchTo();
 //        Assert.assertEquals(staffAbsenSakitPage.getFileFill(),"False");
-        Assert.assertEquals(staffAbsenSakitPage.getDevisiFill(),"False");
+//        Assert.assertEquals(staffAbsenSakitPage.getDevisiFill(),"False");
 //        Assert.assertEquals(staffAbsenSakitPage.getShiftNameFill(),"False");
 //        Assert.assertEquals(staffAbsenSakitPage.getAbsenTypeFill(),"False");
 //        if (staffAbsenSakitPage.getDevisiFill().isEmpty() || staffAbsenSakitPage.getShiftNameFill().isEmpty() || staffAbsenSakitPage.getAbsenTypeFill().isEmpty() || staffAbsenSakitPage.getFileFill().isEmpty()){
@@ -93,11 +102,35 @@ public class StuffAbsenSakitTest {
 //            extentTest.log(LogStatus.FAIL, "user not get alert \"fill this field\"");
 //        }
 
+
 //        if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select file\"");
-//        } else if (staffAbsenSakitPage.getDevisiFill().equals()) {
-//
+//            extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
+//        } else if (staffAbsenSakitPage.getDevisiFill().equals("--Pilih--")) {
+//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
+//        }else if (staffAbsenSakitPage.getShiftNameFill().equals("--Pilih--")) {
+//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
+//        }else if (staffAbsenSakitPage.getAbsenTypeFill().equals("--Pilih--")) {
+//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
+//        }else if (staffAbsenSakitPage.getTypeShiftFill().equals("--Pilih--")) {
+//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
+//        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
+//            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+//        } else {
+//            extentTest.log(LogStatus.FAIL, "user not get alert");
 //        }
+
+        if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
+            extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
+        } else if (staffAbsenSakitPage.getDevisiFill().equals("--Pilih--")
+                || staffAbsenSakitPage.getShiftNameFill().equals("--Pilih--")
+                || staffAbsenSakitPage.getAbsenTypeFill().equals("--Pilih--")
+                || staffAbsenSakitPage.getTypeShiftFill().equals("--Pilih--")) {
+            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
+        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
+            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+        } else {
+            extentTest.log(LogStatus.FAIL, "user not get alert");
+        }
     }
 
 

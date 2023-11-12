@@ -39,11 +39,17 @@ public class StaffAbsenSakitPage extends LoginPage{
     @FindBy(xpath = "//select[@id='absen_type']")
     private WebElement absenType;   //select menu absen_type
 
+    @FindBy(xpath = "//select[@id='type_shift']")
+    private WebElement typeshift;   //select menu absen_type
+
     @FindBy(xpath = "//textarea[@name='keterangan']")
     private WebElement keterangan; //textare keterangan
 
     @FindBy(xpath = "//input[@value='Submit']")
     private WebElement submitBtn;
+
+    @FindBy(xpath = "//a[@class='back']")
+    private WebElement backBtn;
 
     public void setPrivilegeStaff(){
         this.privilegeStaff.click();
@@ -81,6 +87,9 @@ public class StaffAbsenSakitPage extends LoginPage{
     public void setSubmitBtn(){
         this.submitBtn.click();
     }
+    public void setBackBtn(){
+        this.backBtn.click();
+    }
 
     public String getFileFill(){
 //        return fileBtn.getAttribute("required");
@@ -107,9 +116,19 @@ public class StaffAbsenSakitPage extends LoginPage{
         select = new Select(this.absenType);
         return select.getFirstSelectedOption().getText();
     }
+    public String getTypeShiftFill(){
+//        return absenType.getAttribute("required");
+//        return absenType.getText();
+        select = new Select(this.typeshift);
+        return select.getFirstSelectedOption().getText();
+    }
 
     public String getHeader(){
         return header.getText();
+    }
+
+    public String getAlertSakit(){
+        return driver.switchTo().alert().getText();
     }
 
 }
