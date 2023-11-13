@@ -21,7 +21,6 @@ public class AbsenStaffPage {
     @FindBy(xpath = "//a[normalize-space()='Absen Masuk']")
     private WebElement masukBtn;
 
-
     @FindBy(xpath = "//h1[@class='page-header']")
     private WebElement masukHeader;
 
@@ -36,6 +35,9 @@ public class AbsenStaffPage {
 
     @FindBy(xpath = "//span[normalize-space()='D1 (10:00 - 18:00)']")
     private WebElement clickNamaShift;
+
+    @FindBy(xpath = "//span[normalize-space()='Non Shift']")
+    private WebElement clickNamaShiftV2;
 
     @FindBy(xpath = "//select[@id='absen_type']")
     private WebElement tipeAbsen;
@@ -63,6 +65,9 @@ public class AbsenStaffPage {
 
     @FindBy(xpath = "//span[normalize-space()='Logout']")
     private WebElement out;
+
+    @FindBy(xpath = "//a[normalize-space()='Absen Pulang']")
+    private WebElement pulangBtn;
 
     public void setKegiatanBtn(){
         this.kegiatanBtn.click();
@@ -155,11 +160,32 @@ public class AbsenStaffPage {
         this.setLoginBtn();
     }
 
-    public void clearField(){
-        this.selfie.clear();
-        this.divisi.clear();
-        this.namaShift.clear();
-        this.tipeAbsen.clear();
-        this.keterangan.clear();
+    public void accountMasukV3(){
+        this.setUsername("D8222031");
+        this.setPassword("1999-11-28");
+        this.setLoginBtn();
+    }
+
+    public void setAccountState(){
+        this.kegiatanBtn.click();
+        this.masukBtn.click();
+        this.setSelfie();
+        this.namaShift.click();
+        this.clickNamaShiftV2.click();
+        this.setTipeAbsen();
+        this.setKeterangan();
+        this.setSubmitMasuk();
+    }
+
+    public void setPulangBtn(){
+        this.pulangBtn.click();
+    }
+
+    public void setClickNamaShiftV2(){
+        this.clickNamaShiftV2.click();
+    }
+
+    public String getAttributV2(){
+        return tipeAbsen.getAttribute("required");
     }
 }

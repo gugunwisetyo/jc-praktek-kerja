@@ -85,3 +85,57 @@ Feature: Laporan Kegiatan Staff
     And user mengisi keterangan
     And user click submit button
     Then user get alert select an item
+#TCC.TMS.019
+  Scenario: absen pulang tanpa absen masuk terlebih dahulu
+    Given user click logout buttonv2
+    And user login masukv3
+    And user click laporan kegiatan
+    And user click absen pulang
+    And user get alert message
+    Then user meet dashboard page
+#TCC.TMS.020
+  Scenario: absen pulang dengan absen masuk terlebih dahulu
+    Given user click logout buttonv2
+    And user login masukv3
+    And user set account state masuk
+    And user click laporan kegiatan
+    And user click absen pulang
+    And user upload selfie
+    And user pilih nama shiftv2
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get respond page
+#TCC.TMS.021
+  Scenario: kembali ke absen pulang
+    Given user click hyperlink text
+    And user get alert message
+    Then user meet dashboard page
+#TCC.TMS.022
+  Scenario: absen pulang tanpa upload selfie
+    Given user set account state masuk
+    And user click laporan kegiatan
+    And user click absen pulang
+    And user pilih nama shiftv2
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2
+#TCC.TMS.023
+  Scenario: absen pulang tanpa pilih nama shift
+    Given user click laporan kegiatan
+    And user click absen pulang
+    And user upload selfie
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2
+#TCC.TMS.024
+  Scenario: absen pulang tanpa pilih tipe absen
+    Given user click laporan kegiatan
+    And user click absen pulang
+    And user upload selfie
+    And user pilih nama shiftv2
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2

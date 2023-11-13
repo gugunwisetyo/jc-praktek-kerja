@@ -167,4 +167,44 @@ public class AbsenStaffTest {
         absenStaffPage.setAccount();
         extentTest.log(LogStatus.PASS, "user get alert select an item");
     }
+
+    @Given("user click logout buttonv2")
+    public void user_click_logout_buttonv2(){
+        absenStaffPage.setOut();
+        extentTest.log(LogStatus.PASS, "user click logout buttonv2");
+    }
+
+    @And("user login masukv3")
+    public void user_login_masukv3(){
+        absenStaffPage.accountMasukV3();
+        extentTest.log(LogStatus.PASS, "user login masukv3");
+    }
+
+    @And("user click absen pulang")
+    public void user_click_absen_pulang(){
+        absenStaffPage.setPulangBtn();
+        extentTest.log(LogStatus.PASS, "user click absen pulang");
+    }
+
+    @And("user set account state masuk")
+    public void user_set_account_state_masuk(){
+        absenStaffPage.setAccountState();
+        extentTest.log(LogStatus.PASS, "user set account state masuk");
+    }
+
+    @And("user pilih nama shiftv2")
+    public void user_pilih_nama_shiftv2(){
+        absenStaffPage.setShift();
+        absenStaffPage.setClickNamaShiftV2();
+        extentTest.log(LogStatus.PASS, "user pilih nama shiftv2");
+    }
+
+    @Then("user get alert select an itemv2")
+    public void user_get_alert_select_an_itemv2(){
+        Assert.assertEquals(absenStaffPage.getAttributV2(), "true");
+//        absenStaffPage.setAccount();
+        absenStaffPage.setKegiatanBtn();
+        absenStaffPage.setPulangBtn();
+        extentTest.log(LogStatus.PASS, "user get alert select an itemv2");
+    }
 }
