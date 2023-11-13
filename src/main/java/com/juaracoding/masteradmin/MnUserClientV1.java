@@ -131,10 +131,10 @@ public class MnUserClientV1 {
     }
 
     //clear input
-    public void clearAll(){
-        inputName.sendKeys(Keys.CONTROL+"a");
+    public void clearAll() {
+        inputName.sendKeys(Keys.CONTROL + "a");
         inputName.sendKeys(Keys.DELETE);
-        inputEmail.sendKeys(Keys.CONTROL+"a");
+        inputEmail.sendKeys(Keys.CONTROL + "a");
         inputName.sendKeys(Keys.DELETE);
     }
 

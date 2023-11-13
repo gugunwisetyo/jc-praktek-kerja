@@ -1,10 +1,8 @@
-Feature:Dashboard management user client v1
+Feature: Management user client v1
 #  TCC.TMS.001
   Scenario: Dashboard management user client V1
-    Given User input username
-    When User input password
-    And User click button login
-    And User click menu master
+    Given User login
+    When User click menu master
     And User click menu managemen user client v1
     Then User get txt message list user client v1
 
@@ -14,7 +12,7 @@ Feature:Dashboard management user client v1
     When User click button save
     Then User get text message out field name
 
-## TCC.TMS.003
+# TCC.TMS.003
   Scenario: Add user client v1 email null
     Given User input full name
     When User click button save
@@ -66,12 +64,12 @@ Feature:Dashboard management user client v1
 #    TCC.TMS.009
   Scenario: Add user client V1 valid
     Given User click button cancel
-#    When User click button add user
-#    And  User clear input
-#    And User input full name new
-#    And User input email new
-#    And User click button save
-#    Then User add get text message successful
+    When User click button add user
+    And  User clear input
+    And User input full name new
+    And User input email new
+    And User click button save
+    Then User add get text message successful
 
 #    TCC.TMS.010
   Scenario: Show list data user client v1
@@ -89,7 +87,7 @@ Feature:Dashboard management user client v1
     When User press button enter
     Then User get txt message fail search
 
-##    TCC.TMS.012
+#    TCC.TMS.012
   Scenario: Searching data with button search
     Given User input data search
     When User click button search

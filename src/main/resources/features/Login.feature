@@ -2,9 +2,9 @@ Feature: Login TMS
 #  Scenario: invalid TMS url
 #    Given user input invalid url
 #    Then user does not meet login page
-#
-  Scenario: valid TMS url
-    Given user input valid url
+##
+#  Scenario: valid TMS url
+#    Given user input valid url
 #    Then user meet login page
 #
 #  Scenario: invalid password login
@@ -35,7 +35,7 @@ Feature: Login TMS
 #    And user click login button
 #    Then user get text dashboard
 #
-  Scenario: user logout
-    Given user click profile button
-    And user click logout button
-    Then user meet login page
+#  Scenario: user logout
+#    Given user click profile button
+#    And user click logout button
+#    Then user meet login page
