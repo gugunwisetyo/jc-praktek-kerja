@@ -69,6 +69,9 @@ public class AbsenStaffPage {
     @FindBy(xpath = "//a[normalize-space()='Absen Pulang']")
     private WebElement pulangBtn;
 
+    @FindBy(xpath = "//a[normalize-space()='Absen Izin']")
+    private WebElement izinBtn;
+
     public void setKegiatanBtn(){
         this.kegiatanBtn.click();
     }
@@ -166,6 +169,12 @@ public class AbsenStaffPage {
         this.setLoginBtn();
     }
 
+    public void accountMasukV4(){
+        this.setUsername("D8222021");
+        this.setPassword("1996-07-18");
+        this.setLoginBtn();
+    }
+
     public void setAccountState(){
         this.kegiatanBtn.click();
         this.masukBtn.click();
@@ -187,5 +196,9 @@ public class AbsenStaffPage {
 
     public String getAttributV2(){
         return tipeAbsen.getAttribute("required");
+    }
+
+    public void setIzinBtn(){
+        this.izinBtn.click();
     }
 }

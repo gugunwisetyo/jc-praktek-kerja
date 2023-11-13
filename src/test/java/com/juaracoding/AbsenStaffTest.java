@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -206,5 +207,23 @@ public class AbsenStaffTest {
         absenStaffPage.setKegiatanBtn();
         absenStaffPage.setPulangBtn();
         extentTest.log(LogStatus.PASS, "user get alert select an itemv2");
+    }
+
+    @And("user click absen izin")
+    public void user_click_absen_izin(){
+        absenStaffPage.setIzinBtn();
+        extentTest.log(LogStatus.PASS, "user click absen izin");
+    }
+
+    @Then("user meet absen izin page")
+    public void user_meet_absen_izin_page(){
+        Assert.assertEquals(absenStaffPage.getMasukHeader(), "Absen Izin");
+        extentTest.log(LogStatus.PASS, "user meet absen izin page");
+    }
+
+    @When("user login masukv4")
+    public void user_login_masukv4(){
+        absenStaffPage.accountMasukV4();
+        extentTest.log(LogStatus.PASS, "user login masukv4");
     }
 }

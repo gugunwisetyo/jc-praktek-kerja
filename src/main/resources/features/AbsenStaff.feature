@@ -139,3 +139,50 @@ Feature: Laporan Kegiatan Staff
     And user mengisi keterangan
     And user click submit button
     Then user get alert select an itemv2
+#TCC.TMS.025
+  Scenario: menu priviledge staff absen izin
+    Given user click laporan kegiatan
+    And user click absen izin
+    Then user meet absen izin page
+#TCC.TMS.026
+  Scenario: absen izin tanpa upload selfie
+    Given user pilih nama shiftv2
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2
+#TCC.TMS.027
+  Scenario: absen izin tanpa pilih nama shift
+    Given user click laporan kegiatan
+    And user click absen izin
+    And user upload selfie
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2
+#TCC.TMS.028
+  Scenario: absen izin tanpa pilih tipe absen
+    Given user click laporan kegiatan
+    And user click absen izin
+    And user upload selfie
+    And user pilih nama shiftv2
+    And user mengisi keterangan
+    And user click submit button
+    Then user get alert select an itemv2
+#TCC.TMS.029
+  Scenario: valid absen izin
+    Given user click logout buttonv2
+    When user login masukv4
+    And user click laporan kegiatan
+    And user click absen izin
+    And user upload selfie
+    And user pilih nama shiftv2
+    And user pilih tipe absen
+    And user mengisi keterangan
+    And user click submit button
+    Then user get respond page
+#TCC.TMS.030
+  Scenario: kembali ke halaman absen izin
+    Given user click hyperlink text
+    And user meet alert
+    Then user meet dashboard page
