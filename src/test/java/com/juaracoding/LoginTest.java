@@ -3,6 +3,7 @@ package com.juaracoding;
 import com.juaracoding.drivers.DriverSingleton;
 import com.juaracoding.pages.LoginPage;
 import com.juaracoding.utils.Constants;
+import com.mongodb.DBRef;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
@@ -14,7 +15,7 @@ import org.testng.Assert;
 public class LoginTest {
     private static WebDriver driver;
     static ExtentTest extentTest;
-    private static LoginPage loginPage = new LoginPage();
+    static LoginPage loginPage = new LoginPage();
 
     public LoginTest(){
         driver = Hooks.driver;
@@ -72,6 +73,7 @@ public class LoginTest {
         Assert.assertEquals(loginPage.getWrongInput(), "×\n" +
                 "Wrong username or password..!");
         extentTest.log(LogStatus.PASS, "user get alert wrong input");
+        loginPage.clearField();
     }
 
     @Given("user input invalid username")
@@ -88,8 +90,10 @@ public class LoginTest {
 
     @Then("user get alert fill this field")
     public void user_get_alert_fill_this_field(){
-        loginPage.getAttributFill();
+        DriverSingleton.delay(2);
+        Assert.assertEquals(loginPage.getAttributFill(), "true");
         extentTest.log(LogStatus.PASS, "user get alert fill this field");
+        loginPage.clearField();
     }
 
     @Then("user get text dashboard")
@@ -107,7 +111,7 @@ public class LoginTest {
         extentTest.log(LogStatus.PASS, "user click profile button");
     }
 
-    @And("user click logout button")
+    @Given("user click logout button")
     public void user_click_logout_button(){
         loginPage.setLogoutBtn();
         extentTest.log(LogStatus.PASS, "user click logout button");

@@ -9,6 +9,7 @@ Feature: Login Web TMS
     Then user meet login page
 #TCC.TMS.003
   Scenario: invalid password login
+#    Given user click logout button
     Given user input valid username
     And user input invalid password
     And user click login button
@@ -37,6 +38,6 @@ Feature: Login Web TMS
     Then user get text dashboard
 #TCC.TMS.008
   Scenario: user logout
-    Given user click profile button
-    And user click logout button
+#    Given user click profile button
+    Given user click logout button
     Then user meet login page

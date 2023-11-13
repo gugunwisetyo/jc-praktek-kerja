@@ -27,7 +27,7 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"header\"]/ul/li/a")
     private WebElement profile;
 
-    @FindBy(xpath = "//a[normalize-space()='Log Out']")
+    @FindBy(xpath = "//*[@id=\"sidebar\"]/div/div[1]/ul/li[12]/a")
     private WebElement logoutBtn;
 
     @FindBy(xpath = "//*[@id=\"main-message\"]/h1/span")
@@ -81,5 +81,10 @@ public class LoginPage {
 
     public String getAttributFill(){
         return username.getAttribute("required");
+    }
+
+    public void clearField(){
+        this.username.clear();
+        this.password.clear();
     }
 }

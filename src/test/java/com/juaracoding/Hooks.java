@@ -20,12 +20,19 @@ public class Hooks {
 
     static ExtentReports reports = new ExtentReports("target/extent-report.html");
 
-    @Before
+    @BeforeAll
     public static void setUp(){
         DriverSingleton.getInstance(Constants.CHROME);
         driver = DriverSingleton.getDriver();
         driver.get(Constants.URL);
         driver.manage().timeouts().implicitlyWait(Constants.TIMEOUT, TimeUnit.SECONDS);
+//        TestCases[] test = TestCases.values();
+//        extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
+//        Utils.testCount++;
+    }
+
+    @Before
+    public static void secondSetUp(){
         TestCases[] test = TestCases.values();
         extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
         Utils.testCount++;
