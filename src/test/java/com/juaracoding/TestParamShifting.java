@@ -185,6 +185,7 @@ public class TestParamShifting {
         Assert.assertEquals(paramShifting.getTxtAddSuccess(), "Success!");
         extentTest.log(LogStatus.PASS, "User get text message edit success");
     }
+
     @And("User clear name shift")
     public void user_clear_name_shift(){
         paramShifting.clearNameShift();

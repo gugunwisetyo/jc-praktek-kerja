@@ -85,7 +85,7 @@ Feature: Management user client v1
   Scenario: Searching data button enter
     Given User input data search
     When User press button enter
-    Then User get txt message fail search
+    Then User get txt message searching
 
 #    TCC.TMS.012
   Scenario: Searching data with button search

@@ -134,13 +134,13 @@ public class TestMnUserClientV1 {
 
     @When("User input email new")
     public void user_input_email_new() {
-        mnUserClientV1.getInputEmail("automation15@test.com");
+        mnUserClientV1.getInputEmail("automation18@test.com");
         extentTest.log(LogStatus.PASS, "User input email user new");
     }
 
     @Given("User input full name new")
     public void user_input_full_name_new() {
-        mnUserClientV1.getInputName("automation test15 ");
+        mnUserClientV1.getInputName("automation test18");
         extentTest.log(LogStatus.PASS, "User input full name new");
     }
 
@@ -183,7 +183,7 @@ public class TestMnUserClientV1 {
     @And("User select show25 user")
     public void user_select_show25_user() {
         mnUserClientV1.showPage("2");
-        extentTest.log(LogStatus.PASS, "\"User select show25 user");
+        extentTest.log(LogStatus.PASS, "User select show25 user");
         DriverSingleton.delay(3);
     }
 
@@ -241,19 +241,13 @@ public class TestMnUserClientV1 {
         extentTest.log(LogStatus.PASS, "User press button enter");
     }
 
-    @Then("User get txt message fail search")
-    public void user_get_txt_message_fail_search() {
-        DriverSingleton.delay(4);
-        mnUserClientV1.getTxtMessageDashboard();
-        Assert.assertEquals(mnUserClientV1.getTxtMessageDashboard(), "Gagal!");
-        extentTest.log(LogStatus.PASS, "User get txt message fail search");
-    }
+
 
     @Then("User get text message total list data")
     public void user_get_text_message_total_list_data() {
         DriverSingleton.delay(2);
         mnUserClientV1.getTxtTotalList();
-        Assert.assertEquals(mnUserClientV1.getTxtTotalList(), "Showing 1 to 10 of 83 entries");
+        Assert.assertEquals(mnUserClientV1.getTxtTotalList(), "Showing 1 to 10 of 86 entries");
         extentTest.log(LogStatus.PASS, "User get text message total list data");
     }
 
