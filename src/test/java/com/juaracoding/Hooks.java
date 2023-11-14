@@ -17,10 +17,14 @@ public class Hooks {
     static ExtentTest extentTest;
     static ExtentReports reports = new ExtentReports("target/extent-report.html");
 
-    @Before
+    @BeforeAll
     public static void setUp(){
         DriverSingleton.getInstance(Constants.chrome);
         driver = DriverSingleton.getDriver();
+    }
+
+    @Before
+    public static void testOut(){
         TestCases [] test = TestCases.values();
         extentTest = reports.startTest(test[Utils.testCount].getTestCaseName());
         Utils.testCount++;

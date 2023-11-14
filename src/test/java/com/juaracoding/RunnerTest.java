@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 
 @CucumberOptions (
-            features = {"src/main/resources/features/Login.feature",
+            features = {
             "src/main/resources/features/MnUserClientV1.feature",
             "src/main/resources/features/ParamShifting.feature"},
             glue = "com.juaracoding",

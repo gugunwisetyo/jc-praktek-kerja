@@ -33,7 +33,8 @@ public enum TestCases {
     TMS_027 ("Edit the shifting parameter name shift"),
     TMS_028("Edit the shifting parameter start time"),
     TMS_029 ("Edit the shifting parameter start time"),
-    TMS_030 ("Delete data parameter shifting");
+    TMS_030 ("Delete data parameter shifting"),
+    TMS_031 ("Displays data according to dropdown list and page button options");
 
     private String testCaseName;
 

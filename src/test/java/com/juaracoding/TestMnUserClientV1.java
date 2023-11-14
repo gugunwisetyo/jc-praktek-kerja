@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -66,7 +67,7 @@ public class TestMnUserClientV1 {
 
     @When("User click button save")
     public void user_click_button_save() {
-        DriverSingleton.delay(4);
+        DriverSingleton.delay(2);
         mnUserClientV1.clickBtnSave();
         extentTest.log(LogStatus.PASS, "User click button save");
     }
@@ -85,7 +86,7 @@ public class TestMnUserClientV1 {
 
     @Then("User get text message invalid email")
     public void user_get_text_message_invalid_email() {
-        DriverSingleton.delay(3);
+        DriverSingleton.delay(2);
         Assert.assertEquals(mnUserClientV1.getTxtAlertEmailInvalid(),
                 "Please include an '@' in the email address. 'SQAbatch11-testing.com' is missing an '@'.");
         extentTest.log(LogStatus.PASS, "User get text message invalid email");
@@ -118,7 +119,7 @@ public class TestMnUserClientV1 {
 
     @Then("User add get text message successful")
     public void user_add_get_text_message_successful() {
-        DriverSingleton.delay(4);
+        DriverSingleton.delay(2);
         mnUserClientV1.getTxtMessageDashboard();
         Assert.assertEquals(mnUserClientV1.getTxtMessageDashboard(), "Sukses!");
         extentTest.log(LogStatus.PASS, "User get text message successful");
@@ -132,22 +133,11 @@ public class TestMnUserClientV1 {
         extentTest.log(LogStatus.PASS, "User get text message duplicate");
     }
 
-    @When("User input email new")
-    public void user_input_email_new() {
-        mnUserClientV1.getInputEmail("automation18@test.com");
-        extentTest.log(LogStatus.PASS, "User input email user new");
-    }
-
-    @Given("User input full name new")
-    public void user_input_full_name_new() {
-        mnUserClientV1.getInputName("automation test18");
-        extentTest.log(LogStatus.PASS, "User input full name new");
-    }
 
     //button cancel
     @Given("User click button cancel")
     public void user_click_button_cancel() {
-        DriverSingleton.delay(5);
+        DriverSingleton.delay(2);
         mnUserClientV1.clickBtnCancel();
         extentTest.log(LogStatus.PASS, "User click button cancel");
     }
@@ -157,6 +147,7 @@ public class TestMnUserClientV1 {
     public void user_click_button_close_tab() {
         mnUserClientV1.clickBtnCloseAdd();
         extentTest.log(LogStatus.PASS, "User click button close tab");
+
     }
 
     //show page
@@ -164,18 +155,18 @@ public class TestMnUserClientV1 {
     public void user_click_button_page_next() {
         mnUserClientV1.clickBtnNextPage();
         extentTest.log(LogStatus.PASS, "User click button page next");
+        DriverSingleton.delay(2);
     }
 
     @When("User click button page3")
     public void user_click_button_page3() {
-        DriverSingleton.delay(4);
         mnUserClientV1.clickBtnPageNumb1();
         extentTest.log(LogStatus.PASS, "User click button pag3");
+        DriverSingleton.delay(2);
     }
 
     @And("User click button page prev")
     public void user_click_button_page_prev() {
-        DriverSingleton.delay(4);
         mnUserClientV1.clickBtnPrevPage();
         extentTest.log(LogStatus.PASS, "User click button page prev");
     }
@@ -184,14 +175,14 @@ public class TestMnUserClientV1 {
     public void user_select_show25_user() {
         mnUserClientV1.showPage("2");
         extentTest.log(LogStatus.PASS, "User select show25 user");
-        DriverSingleton.delay(3);
+        DriverSingleton.delay(2);
     }
 
     @And("User select show50 user")
     public void user_select_show50_user() {
         mnUserClientV1.showPage("5");
         extentTest.log(LogStatus.PASS, "User select show50 user");
-        DriverSingleton.delay(3);
+        DriverSingleton.delay(2);
     }
 
     @And("User select show100 user")
@@ -241,13 +232,23 @@ public class TestMnUserClientV1 {
         extentTest.log(LogStatus.PASS, "User press button enter");
     }
 
+    //input new email and name
+    @When("User input email new")
+    public void user_input_email_new() {
+        mnUserClientV1.getInputEmail("automation21@test.com");
+        extentTest.log(LogStatus.PASS, "User input email user new");
+    }
 
-
+    @Given("User input full name new")
+    public void user_input_full_name_new() {
+        mnUserClientV1.getInputName("automation test21");
+        extentTest.log(LogStatus.PASS, "User input full name new");
+    }
     @Then("User get text message total list data")
     public void user_get_text_message_total_list_data() {
         DriverSingleton.delay(2);
         mnUserClientV1.getTxtTotalList();
-        Assert.assertEquals(mnUserClientV1.getTxtTotalList(), "Showing 1 to 10 of 86 entries");
+        Assert.assertEquals(mnUserClientV1.getTxtTotalList(), "Showing 1 to 10 of 90 entries");
         extentTest.log(LogStatus.PASS, "User get text message total list data");
     }
 

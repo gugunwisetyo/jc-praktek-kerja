@@ -1,8 +1,9 @@
 Feature: Dashboard Parameter Shifting
 #  TCC.TMS.014
   Scenario: Dashboard Parameter Shifting
-    Given User click menu master tab
-    When User click menu parameter shifting
+    Given User login
+    When User click menu master tab
+    And User click menu parameter shifting
     Then User get text message parameter shift
 
 #    TCC.TMS.015
@@ -135,10 +136,21 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message edit success
 
-#    TCC.TMS.0230
+#    TCC.TMS.030
   Scenario:Delete data parameter shifting
     Given User input data in search text box
     When User click button plus
     And User click button delete
     And User click button ok in alert
     Then User get text message delete success
+
+#    TCC.TMS.031
+  Scenario: Displays data according to dropdown list and page button options
+    Given User click button next page
+    When User click button previous page
+    And User click button page4
+    And User click button dropdown list show page
+    And User select 25 show page
+    And User select 50 show page
+    And User select 100 show page
+    Then User get text message show page parameter shift

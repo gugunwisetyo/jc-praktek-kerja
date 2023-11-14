@@ -58,12 +58,23 @@ public class ParamShifting {
     @FindBy (xpath = "//span[@class='dtr-data']//a[@title='Delete Data']")
     public WebElement btnDelete;
 
-
     //Locator Dashboard
     @FindBy (xpath = "//a[normalize-space()='Parameter Shifting']")
     public WebElement tabParamShift;
     @FindBy(xpath = "//a[normalize-space()='Parameter Shift']")
     public WebElement txtParamShift;
+
+   //Locator - Show Data Page
+   @FindBy (xpath = "//a[normalize-space()='Next']")
+   public WebElement btnNext;
+   @FindBy(xpath = "//a[normalize-space()='Previous']")
+   public WebElement btnPrevious;
+   @FindBy (xpath = "//a[normalize-space()='4']")
+   public WebElement btnPage4;
+   @FindBy(xpath = "//select[@name='data-table-default_length']")
+   public WebElement showPage;
+   @FindBy (xpath = "//td[normalize-space()='100']")
+   public WebElement txtSHowPage;
 
 
     //Dashboard Parameter Shift
@@ -144,8 +155,24 @@ public class ParamShifting {
     public void clickAlert(){
         this.driver.switchTo().alert().accept();
     }
-
-
+    public void clickBtnNext(){
+        this.btnNext.click();
+    }
+    public void clickBtnPrev(){
+        this.btnPrevious.click();
+    }
+    public void clickBtnPage4(){
+        this.btnPage4.click();
+    }
+    public void clickShowPage(){
+        this.showPage.click();
+    }
+    public void getShowPage(String user){
+        this.showPage.sendKeys(user);
+    }
+    public String getTxtShowPage() {
+        return txtSHowPage.getText();
+    }
 
 
 

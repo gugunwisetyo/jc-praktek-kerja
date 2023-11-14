@@ -1,8 +1,10 @@
 package com.juaracoding;
 
 import com.juaracoding.drivers.DriverSingleton;
+import com.juaracoding.masteradmin.LoginPage;
 import com.juaracoding.masteradmin.MnUserClientV1;
 import com.juaracoding.masteradmin.ParamShifting;
+import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.bs.A;
@@ -20,6 +22,7 @@ public class TestParamShifting {
 
     public static ExtentTest extentTest;
     private static WebDriver driver;
+    private static LoginPage loginPage = new LoginPage();
     private static MnUserClientV1 mnUserClientV1 = new MnUserClientV1();
     private static ParamShifting paramShifting = new ParamShifting();
 
@@ -29,13 +32,20 @@ public class TestParamShifting {
     }
 
     //Dashboard Parameter Shifting
-    @Given("User click menu master tab")
+    @Given("User Login")
+    public void user_login(){
+        driver.get(Constants.URL);
+        loginPage.setUsername("admin_tms");
+        loginPage.setPassword("d1k4@passw0rd");
+
+    }
+    @When("User click menu master tab")
     public void user_click_menu_master_tab() {
         mnUserClientV1.clickMaster();
         extentTest.log(LogStatus.PASS, "User click menu master tab");
     }
 
-    @When("User click menu parameter shifting")
+    @And("User click menu parameter shifting")
     public void user_click_menu_parameter_shifting() {
         paramShifting.clickTabParamShift();
         extentTest.log(LogStatus.PASS, "User click menu parameter shifting");
@@ -240,6 +250,54 @@ public class TestParamShifting {
         paramShifting.getTxtAddSuccess();
         Assert.assertEquals(paramShifting.getTxtAddSuccess(),"Success!");
         extentTest.log(LogStatus.PASS, "User get text message delete success");
+    }
+    //Show Page
+    @Given("User click button next page")
+    public void  user_click_button_next_page(){
+        paramShifting.clickBtnNext();
+        extentTest.log(LogStatus.PASS, "User click button next page");
+    }
+    @When("User click button previous page")
+    public void user_click_button_previous_page(){
+        paramShifting.clickBtnPrev();
+        extentTest.log(LogStatus.PASS, "User click button previous page");
+    }
+    @And("User click button page4")
+    public void user_click_button_page4(){
+        paramShifting.clickBtnPage4();
+        extentTest.log(LogStatus.PASS, "User click button page4");
+    }
+    @And("User click button dropdown list show page")
+    public void user_click_button_dropdown_list_show_page(){
+        paramShifting.clickShowPage();
+        extentTest.log(LogStatus.PASS, "User click button dropdown list show page");
+    }
+    @And("User select 25 show page")
+    public void user_select_25_show_page(){
+        paramShifting.getShowPage("2");
+        extentTest.log(LogStatus.PASS, "User select 25 show page");
+
+    }
+    @And("User select 50 show page")
+    public void user_select_50_show_page(){
+        DriverSingleton.delay(1);
+        paramShifting.getShowPage("5");
+        extentTest.log(LogStatus.PASS, "User select 25 show page");
+
+    }
+    @And("User select 100 show page")
+    public void user_select_100_show_page(){
+        DriverSingleton.delay(1);
+        paramShifting.getShowPage("1"+Keys.ENTER);
+        extentTest.log(LogStatus.PASS, "User select 25 show page");
+        DriverSingleton.delay(1);
+
+    }
+    @Then("User get text message show page parameter shift")
+    public void user_get_text_message_show_page_parameter_shift(){
+        paramShifting.getTxtShowPage();
+        Assert.assertEquals(paramShifting.getTxtShowPage(),"100");
+        extentTest.log(LogStatus.PASS, "User get text message show page parameter shift");
     }
 
 }
