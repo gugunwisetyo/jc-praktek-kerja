@@ -106,8 +106,13 @@ public class StaffAbsenSakitPage extends LoginPage{
     public String getShiftNameFill(){
 //        return shiftName.getAttribute("required");
 //        return shiftName.getText();
-        select = new Select(this.shiftName);
-        return select.getFirstSelectedOption().getText();
+        select = new Select(this.devisi);
+        if (select.getFirstSelectedOption().getText().equals("---Pilih---")){
+            return "null";
+        } else {
+            select = new Select(this.shiftName);
+            return select.getFirstSelectedOption().getText();
+        }
     }
 
     public String getAbsenTypeFill(){

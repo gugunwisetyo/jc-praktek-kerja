@@ -69,25 +69,25 @@ Feature: Staff Absen Sakit
     Then user get validation sakit
 
 #  TCC.TMC.007 Input semua form dengan benar
-#  Scenario: invalid no tipe shift absen sakit
-#    Given user login as staff sakit
-#    And user click privilege menu sakit
-#    And user click absen sakit
-#    And user upload foto sakit
-#    And user input valid devisi sakit
-#    And user input valid shift name sakit
-#    And user input valid keterangan sakit
-#    And user click submit absen sakit
-#    Then user get validation sakit
-
+  Scenario: invalid no tipe shift absen sakit
+    Given user login as staff sakit
+    And user click privilege menu sakit
+    And user click absen sakit
+    And user upload foto sakit
+    And user input valid devisi sakit
+    And user input valid shift name sakit
+    And user input valid absen type sakit
+    And user input valid keterangan sakit
+    And user click submit absen sakit
+    Then user get validation sakit
 #  TCC.TMC.008 Hyperlink text pada feedback page absen sakit
-#  Scenario: invalid no tipe shift absen sakit
-#    Given user login as staff sakit
-#    And user click privilege menu sakit
-#    And user click absen sakit
-#    And user upload foto sakit
-#    And user input valid devisi sakit
-#    And user input valid shift name sakit
-#    And user input valid keterangan sakit
-#    And user click submit absen sakit
-#    Then user get validation sakit
+  Scenario: invalid no tipe shift absen sakit
+    Given user login as staff sakit
+    And user click privilege menu sakit
+    And user click absen sakit
+    And user upload foto sakit
+    And user input valid devisi sakit
+    And user input valid shift name sakit
+    And user input valid keterangan sakit
+    And user click submit absen sakit
+    Then user get validation sakit

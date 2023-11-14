@@ -26,7 +26,7 @@ Feature: Staff Absen Off
     And user click privilege menu off
     And user click absen off
     And user upload foto off
-    And user input valid shift name off
+    And user not input shift name off
     And user input valid absen type off
     And user input valid keterangan off
     And user click submit absen off

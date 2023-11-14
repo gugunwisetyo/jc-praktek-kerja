@@ -26,8 +26,8 @@ public class StuffAbsenSakitTest {
 
     @Given("user login as staff sakit")
     public void user_login_as_staff_sakit(){
-        staffAbsenSakitPage.setUsername("D6210598");
-        staffAbsenSakitPage.setPassword("1999-04-01");
+        staffAbsenSakitPage.setUsername("D6220404");
+        staffAbsenSakitPage.setPassword("1996-09-29");
         DriverSingleton.delay(3);
         staffAbsenSakitPage.setLoginBtn();
         extentTest.log(LogStatus.PASS, "user login as staff");
@@ -46,6 +46,7 @@ public class StuffAbsenSakitTest {
 
     @Then("user get text header sakit")
     public void user_get_text_header_sakit(){
+        DriverSingleton.delay(3);
         Assert.assertEquals(staffAbsenSakitPage.getHeader(),"Absen Sakit");
         extentTest.log(LogStatus.PASS, "user get text header");
     }
@@ -65,6 +66,12 @@ public class StuffAbsenSakitTest {
     public void user_input_valid_shift_name_sakit(){
         staffAbsenSakitPage.setShiftName("Non Shift");
         extentTest.log(LogStatus.PASS, "user input valid shift name");
+    }
+
+    @And("user not input shift name sakit")
+    public void user_not_input_shift_name_sakit(){
+//        staffAbsenSakitPage.setShiftName("Non Shift");
+        extentTest.log(LogStatus.PASS, "user not input shift name");
     }
     @And("user input valid absen type sakit")
     public void user_input_valid_absen_type_sakit(){
@@ -119,12 +126,13 @@ public class StuffAbsenSakitTest {
 //            extentTest.log(LogStatus.FAIL, "user not get alert");
 //        }
 
+//        Assert.assertEquals(staffAbsenSakitPage.getShiftNameFill(),"Fail");
         if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
             extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
-        } else if (staffAbsenSakitPage.getDevisiFill().equals("--Pilih--")
-                || staffAbsenSakitPage.getShiftNameFill().equals("--Pilih--")
-                || staffAbsenSakitPage.getAbsenTypeFill().equals("--Pilih--")
-                || staffAbsenSakitPage.getTypeShiftFill().equals("--Pilih--")) {
+        } else if (staffAbsenSakitPage.getDevisiFill().equals("---Pilih---")
+                || staffAbsenSakitPage.getShiftNameFill().equals("---Pilih---")
+                || staffAbsenSakitPage.getAbsenTypeFill().equals("---Pilih---")
+                || staffAbsenSakitPage.getTypeShiftFill().equals("---Pilih---")) {
             extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
         } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
             extentTest.log(LogStatus.PASS, "Data Berhasil diinput");

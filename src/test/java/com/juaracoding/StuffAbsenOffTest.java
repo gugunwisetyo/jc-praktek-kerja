@@ -42,6 +42,7 @@ public class StuffAbsenOffTest {
 
     @Then("user get text header off")
     public void user_get_text_header_off(){
+        DriverSingleton.delay(3);
         Assert.assertEquals(staffAbsenOffPage.getHeader(),"Absen Off");
         extentTest.log(LogStatus.PASS, "user get text header");
     }
@@ -62,6 +63,13 @@ public class StuffAbsenOffTest {
         staffAbsenOffPage.setShiftName("Non Shift");
         extentTest.log(LogStatus.PASS, "user input valid shift name");
     }
+
+    @And("user not input shift name off")
+    public void user_not_input_shift_name_off(){
+//        staffAbsenOffPage.setShiftName("Non Shift");
+        extentTest.log(LogStatus.PASS, "user not input shift name");
+    }
+
     @And("user input valid absen type off")
     public void user_input_valid_absen_type_off(){
         staffAbsenOffPage.setAbsenType("WFH");
@@ -115,12 +123,14 @@ public class StuffAbsenOffTest {
 //            extentTest.log(LogStatus.FAIL, "user not get alert");
 //        }
 
+//        Assert.assertEquals(staffAbsenOffPage.getDevisiFill(),"Fail");
         if (staffAbsenOffPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
             extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
-        } else if (staffAbsenOffPage.getDevisiFill().equals("--Pilih--")
-                || staffAbsenOffPage.getShiftNameFill().equals("--Pilih--")
-                || staffAbsenOffPage.getAbsenTypeFill().equals("--Pilih--")
-                || staffAbsenOffPage.getTypeShiftFill().equals("--Pilih--")) {
+        } else if (staffAbsenOffPage.getDevisiFill().equals("---Pilih---")
+                || staffAbsenOffPage.getShiftNameFill().equals("---Pilih---")
+                || staffAbsenOffPage.getShiftNameFill().equals("null")
+                || staffAbsenOffPage.getAbsenTypeFill().equals("---Pilih---")
+                || staffAbsenOffPage.getTypeShiftFill().equals("---Pilih---")) {
             extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
         } else if (staffAbsenOffPage.getHeader().equals("Input Data")) {
             extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
