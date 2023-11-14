@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -89,8 +90,26 @@ public class StuffAbsenOffTest {
 
     @And("user upload foto off")
     public void user_upload_foto_off(){
-        staffAbsenOffPage.setFileBtn("C:\\Users\\Aldi Triavin\\Downloads\\Ai Generate\\test1.jpeg");
+        staffAbsenOffPage.setFileBtn("C:\\Users\\Aldi Triavin\\Downloads\\Ai Generate\\test2.jpeg");
         extentTest.log(LogStatus.PASS, "user upload foto");
+    }
+
+    @Given("user click hyperlink off")
+    public void user_click_hyperlink_off(){
+        staffAbsenOffPage.setHyperlink();
+        extentTest.log(LogStatus.PASS, "user upload foto");
+    }
+
+    @And("user get alert absen off")
+    public void user_get_alert_absen_off() {
+        try {
+            driver.switchTo().alert().accept();
+            Assert.assertTrue(true, "Alert accepted successfully");
+            extentTest.log(LogStatus.PASS, "user get alert message");
+        } catch (NoAlertPresentException e) {
+            Assert.fail("No alert present");
+            extentTest.log(LogStatus.FAIL, "user don't get alert message");
+        }
     }
 
     @Then("user get validation off")
@@ -134,10 +153,26 @@ public class StuffAbsenOffTest {
             extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
         } else if (staffAbsenOffPage.getHeader().equals("Input Data")) {
             extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+        } else if (staffAbsenOffPage.getHeader().equals("Dashboard")){
+            extentTest.log(LogStatus.PASS, "user back to dashboard page");
         } else {
-            extentTest.log(LogStatus.FAIL, "user not get alert");
+            extentTest.log(LogStatus.FAIL, "something wrong (user not get alert or data fail to input");
         }
     }
+
+    @Given("user click profile button absen off")
+    public void user_click_profile_button_absen_off(){
+        staffAbsenOffPage.setProfile();
+        extentTest.log(LogStatus.PASS, "user click profile button");
+    }
+
+    @And("user click logout button absen off")
+    public void user_click_logout_button_absen_off(){
+        staffAbsenOffPage.setLogoutBtn();
+        extentTest.log(LogStatus.PASS, "user click logout button");
+    }
+
+
 
 
 }

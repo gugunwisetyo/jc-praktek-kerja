@@ -11,6 +11,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -96,6 +97,24 @@ public class StuffAbsenSakitTest {
         extentTest.log(LogStatus.PASS, "user upload foto");
     }
 
+    @Given("user click hyperlink sakit")
+    public void user_click_hyperlink_sakit(){
+        staffAbsenSakitPage.setHyperlink();
+        extentTest.log(LogStatus.PASS, "user upload foto");
+    }
+
+    @And("user get alert absen sakit")
+    public void user_get_alert_absen_sakit() {
+        try {
+            driver.switchTo().alert().accept();
+            Assert.assertTrue(true, "Alert accepted successfully");
+            extentTest.log(LogStatus.PASS, "user get alert message");
+        } catch (NoAlertPresentException e) {
+            Assert.fail("No alert present");
+            extentTest.log(LogStatus.FAIL, "user don't get alert message");
+        }
+    }
+
     @Then("user get validation sakit")
     public void user_get_validation_sakit(){
         driver.switchTo();
@@ -136,8 +155,10 @@ public class StuffAbsenSakitTest {
             extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
         } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
             extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")){
+            extentTest.log(LogStatus.PASS, "user back to dashboard page");
         } else {
-            extentTest.log(LogStatus.FAIL, "user not get alert");
+            extentTest.log(LogStatus.FAIL, "something wrong (user not get alert or data fail to input");
         }
     }
 

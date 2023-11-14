@@ -49,7 +49,7 @@ public class StaffAbsenOffPage extends LoginPage{
     private WebElement submitBtn;
 
     @FindBy(xpath = "//a[@class='back']")
-    private WebElement backBtn;
+    private WebElement hyperlink;
 
     public void setPrivilegeStaff(){
         this.privilegeStaff.click();
@@ -87,8 +87,8 @@ public class StaffAbsenOffPage extends LoginPage{
     public void setSubmitBtn(){
         this.submitBtn.click();
     }
-    public void setBackBtn(){
-        this.backBtn.click();
+    public void setHyperlink(){
+        this.hyperlink.click();
     }
 
     public String getFileFill(){
@@ -132,8 +132,5 @@ public class StaffAbsenOffPage extends LoginPage{
         return header.getText();
     }
 
-    public String getAlertOff(){
-        return driver.switchTo().alert().getText();
-    }
 
 }
