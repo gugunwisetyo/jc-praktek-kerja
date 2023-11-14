@@ -1,37 +1,37 @@
 Feature: Dashboard Parameter Shifting
-#  TCC.TMS.014
+#  TCC.TMS.044
   Scenario: Dashboard Parameter Shifting
     Given User login
     When User click menu master tab
     And User click menu parameter shifting
     Then User get text message parameter shift
 
-#    TCC.TMS.015
+#    TCC.TMS.045
   Scenario: Add parameter shift data null
     Given User click button add
     When User click button submit
     Then User get text message unit required
 
-#    TCC.TMS.016
+#    TCC.TMS.046
   Scenario: Added shift parameter only input units
     Given User click unit
     When User input unit
     And User click button submit
     Then User get text message name shift required
 
-#    TCC.TMS.017
+#    TCC.TMS.047
   Scenario: Added shift parameter input units and name shift
     Given User input name shift
     When User click button submit
     Then User get text message start time required
 
-#    TCC.TMS.018
+#    TCC.TMS.048
   Scenario: Added shift parameter input units, name shift and start time
     Given User input start time
     When User click button submit
     Then User get text message the hour is over required
 
-#    TCC.TMS.0019
+#    TCC.TMS.049
   Scenario: Added shift parameters with start time using letters
     Given User clear input start time
     When User input start time with a letter
@@ -39,7 +39,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message the hour is over required
 
-#    TCC.TMS.020
+#    TCC.TMS.050
   Scenario: Added shift parameters with finished hour input using letters
     Given User click button add
     When User click unit
@@ -50,7 +50,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message start time required
 
-#  TCC.TMS.021
+#  TCC.TMS.051
   Scenario: Added valid shifting parameter data
     Given User click button add
     When User click unit
@@ -61,7 +61,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message
 
-##    TCC.TMS.022
+##    TCC.TMS.052
   Scenario: Edit the shifting parameter data with empty units
     Given User input data in search text box
     When User click button plus
@@ -70,7 +70,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message unit required
 
-#    TCC.TMS.023
+#    TCC.TMS.053
   Scenario: Edit the shifting parameter data with empty name shift
     Given User input data in search text box
     When User click button plus
@@ -79,7 +79,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message name shift required
 
-#    TCC.TMS.024
+#    TCC.TMS.054
   Scenario: Edit the shifting parameter data with empty start time
     Given User input data in search text box
     When User click button plus
@@ -88,7 +88,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message start time required
 
-#    TCC.TMS.025
+#    TCC.TMS.055
   Scenario: Edit the shifting parameter data with empty the hour is over
     Given User input data in search text box
     When User click button plus
@@ -97,7 +97,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message the hour is over required
 
-#  TCC.TMS.026
+#  TCC.TMS.056
   Scenario: Edit the shifting parameter unit
     Given User input data in search text box
     When User click button plus
@@ -106,7 +106,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message edit success
 
-#   TCC.TMS.027
+#   TCC.TMS.057
   Scenario: Edit the shifting parameter name shift
     Given User input data in search text box
     When User click button plus
@@ -116,7 +116,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message edit success
 
-#     TCC.TMS.028
+#     TCC.TMS.058
   Scenario: Edit the shifting parameter start time
     Given User input data in search text box
     When User click button plus
@@ -126,7 +126,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message edit success
 
-#       TCC.TMS.029
+#       TCC.TMS.059
   Scenario: Edit the shifting parameter start time
     Given User input data in search text box
     When User click button plus
@@ -136,7 +136,7 @@ Feature: Dashboard Parameter Shifting
     And User click button submit
     Then User get text message edit success
 
-#    TCC.TMS.030
+#    TCC.TMS.060
   Scenario:Delete data parameter shifting
     Given User input data in search text box
     When User click button plus
@@ -144,7 +144,7 @@ Feature: Dashboard Parameter Shifting
     And User click button ok in alert
     Then User get text message delete success
 
-#    TCC.TMS.031
+#    TCC.TMS.061
   Scenario: Displays data according to dropdown list and page button options
     Given User click button next page
     When User click button previous page
