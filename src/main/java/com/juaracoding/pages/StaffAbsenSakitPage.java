@@ -92,20 +92,15 @@ public class StaffAbsenSakitPage extends LoginPage{
     }
 
     public String getFileFill(){
-//        return fileBtn.getAttribute("required");
         return fileBtn.getCssValue("color");
     }
 
     public String getDevisiFill(){
-//        return devisi.getAttribute("required");
-//        return devisi.getText();
         select = new Select(this.devisi);
         return select.getFirstSelectedOption().getText();
     }
 
     public String getShiftNameFill(){
-//        return shiftName.getAttribute("required");
-//        return shiftName.getText();
         select = new Select(this.devisi);
         if (select.getFirstSelectedOption().getText().equals("---Pilih---")){
             return "null";
@@ -116,14 +111,10 @@ public class StaffAbsenSakitPage extends LoginPage{
     }
 
     public String getAbsenTypeFill(){
-//        return absenType.getAttribute("required");
-//        return absenType.getText();
         select = new Select(this.absenType);
         return select.getFirstSelectedOption().getText();
     }
     public String getTypeShiftFill(){
-//        return absenType.getAttribute("required");
-//        return absenType.getText();
         select = new Select(this.typeshift);
         return select.getFirstSelectedOption().getText();
     }

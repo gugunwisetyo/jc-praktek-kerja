@@ -23,8 +23,8 @@ public class StuffAbsenOffTest {
 
     @Given("user login as staff off")
     public void user_login_as_staff_off(){
-        staffAbsenOffPage.setUsername("D6190874");
-        staffAbsenOffPage.setPassword("2001-01-08");
+        staffAbsenOffPage.setUsername("D6200927");
+        staffAbsenOffPage.setPassword("1993-03-13");
         DriverSingleton.delay(3);
         staffAbsenOffPage.setLoginBtn();
         extentTest.log(LogStatus.PASS, "user login as staff");
@@ -90,7 +90,7 @@ public class StuffAbsenOffTest {
 
     @And("user upload foto off")
     public void user_upload_foto_off(){
-        staffAbsenOffPage.setFileBtn("C:\\Users\\Aldi Triavin\\Downloads\\Ai Generate\\test2.jpeg");
+        staffAbsenOffPage.setFileBtn("C:\\Users\\Wahidaritadi\\Documents\\ALT\\test2.png");
         extentTest.log(LogStatus.PASS, "user upload foto");
     }
 
@@ -160,19 +160,24 @@ public class StuffAbsenOffTest {
         }
     }
 
-    @Given("user click profile button absen off")
+    @Then("user get validation melakukan absen off")
+    public void user_get_validation_melakukan_absen_off(){
+        if (staffAbsenOffPage.getHeader().equals("Input Data")){
+            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+        } else if (staffAbsenOffPage.getHeader().equals("Dashboard")){
+            extentTest.log(LogStatus.PASS, "user back to dashboard page");
+        }
+    }
+
+    @And("user click profile button absen off")
     public void user_click_profile_button_absen_off(){
         staffAbsenOffPage.setProfile();
         extentTest.log(LogStatus.PASS, "user click profile button");
     }
 
-    @And("user click logout button absen off")
+    @Then("user click logout button absen off")
     public void user_click_logout_button_absen_off(){
         staffAbsenOffPage.setLogoutBtn();
         extentTest.log(LogStatus.PASS, "user click logout button");
     }
-
-
-
-
 }

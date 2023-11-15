@@ -44,6 +44,8 @@ public class AdminReportAbsenMasukPage extends LoginPage{
 
     @FindBy(xpath = "//input[@name='submit']")
     private WebElement exportBtn;
+    @FindBy(xpath = "//*[@id=\"data-table-default\"]/tbody/tr/td")
+    private WebElement dataTable;
 
 
     public void setPrivilegeReportAbsen(){
@@ -71,6 +73,7 @@ public class AdminReportAbsenMasukPage extends LoginPage{
 
     public void setStartDate(String startDate){
         this.startDate.sendKeys(startDate);
+
     }
 
     public void setEndDate(String endDate){
@@ -104,8 +107,7 @@ public class AdminReportAbsenMasukPage extends LoginPage{
     public String getStartDateFill(){
 //        return absenType.getAttribute("required");
 //        return absenType.getText();
-
-        return startDate.getText();
+        return this.startDate.getText();
     }
     public String getEndDateFill(){
 //        return absenType.getAttribute("required");
@@ -116,6 +118,9 @@ public class AdminReportAbsenMasukPage extends LoginPage{
 
     public String getHeader(){
         return header.getText();
+    }
+    public String getDataTable(){
+        return dataTable.getAttribute("class");
     }
 
 

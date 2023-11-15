@@ -27,8 +27,8 @@ public class StuffAbsenSakitTest {
 
     @Given("user login as staff sakit")
     public void user_login_as_staff_sakit(){
-        staffAbsenSakitPage.setUsername("D6220404");
-        staffAbsenSakitPage.setPassword("1996-09-29");
+        staffAbsenSakitPage.setUsername("D6190874");
+        staffAbsenSakitPage.setPassword("2001-01-08");
         DriverSingleton.delay(3);
         staffAbsenSakitPage.setLoginBtn();
         extentTest.log(LogStatus.PASS, "user login as staff");
@@ -74,6 +74,7 @@ public class StuffAbsenSakitTest {
 //        staffAbsenSakitPage.setShiftName("Non Shift");
         extentTest.log(LogStatus.PASS, "user not input shift name");
     }
+
     @And("user input valid absen type sakit")
     public void user_input_valid_absen_type_sakit(){
         staffAbsenSakitPage.setAbsenType("WFH");
@@ -93,7 +94,7 @@ public class StuffAbsenSakitTest {
 
     @And("user upload foto sakit")
     public void user_upload_foto_sakit(){
-        staffAbsenSakitPage.setFileBtn("C:\\Users\\Aldi Triavin\\Downloads\\Ai Generate\\test1.jpeg");
+        staffAbsenSakitPage.setFileBtn("C:\\Users\\Wahidaritadi\\Documents\\ALT\\test1.png");
         extentTest.log(LogStatus.PASS, "user upload foto");
     }
 
@@ -117,49 +118,36 @@ public class StuffAbsenSakitTest {
 
     @Then("user get validation sakit")
     public void user_get_validation_sakit(){
-        driver.switchTo();
-//        Assert.assertEquals(staffAbsenSakitPage.getFileFill(),"False");
-//        Assert.assertEquals(staffAbsenSakitPage.getDevisiFill(),"False");
-//        Assert.assertEquals(staffAbsenSakitPage.getShiftNameFill(),"False");
-//        Assert.assertEquals(staffAbsenSakitPage.getAbsenTypeFill(),"False");
-//        if (staffAbsenSakitPage.getDevisiFill().isEmpty() || staffAbsenSakitPage.getShiftNameFill().isEmpty() || staffAbsenSakitPage.getAbsenTypeFill().isEmpty() || staffAbsenSakitPage.getFileFill().isEmpty()){
-//            extentTest.log(LogStatus.PASS, "user get alert \"fill this field\"");
-//        } else {
-//            extentTest.log(LogStatus.FAIL, "user not get alert \"fill this field\"");
-//        }
-
-
-//        if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
-//        } else if (staffAbsenSakitPage.getDevisiFill().equals("--Pilih--")) {
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
-//        }else if (staffAbsenSakitPage.getShiftNameFill().equals("--Pilih--")) {
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
-//        }else if (staffAbsenSakitPage.getAbsenTypeFill().equals("--Pilih--")) {
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
-//        }else if (staffAbsenSakitPage.getTypeShiftFill().equals("--Pilih--")) {
-//            extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
-//        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
-//            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
-//        } else {
-//            extentTest.log(LogStatus.FAIL, "user not get alert");
-//        }
-
-//        Assert.assertEquals(staffAbsenSakitPage.getShiftNameFill(),"Fail");
-        if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")){
-            extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
-        } else if (staffAbsenSakitPage.getDevisiFill().equals("---Pilih---")
+        if (staffAbsenSakitPage.getDevisiFill().equals("---Pilih---")
                 || staffAbsenSakitPage.getShiftNameFill().equals("---Pilih---")
                 || staffAbsenSakitPage.getAbsenTypeFill().equals("---Pilih---")
                 || staffAbsenSakitPage.getTypeShiftFill().equals("---Pilih---")) {
             extentTest.log(LogStatus.PASS, "user get alert \"please select item in the list.\"");
-        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")) {
-            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
-        } else if (staffAbsenSakitPage.getHeader().equals("Input Data")){
-            extentTest.log(LogStatus.PASS, "user back to dashboard page");
-        } else {
+        } else if (staffAbsenSakitPage.getFileFill().equals("rgba(112, 116, 120, 1)")) {
+            extentTest.log(LogStatus.PASS, "user get alert \"please select file.\"");
+        }  else {
             extentTest.log(LogStatus.FAIL, "something wrong (user not get alert or data fail to input");
         }
+    }
+
+    @Then("user get validation melakukan absen sakit")
+    public void user_get_validation_melakukan_absen_sakit(){
+        if (staffAbsenSakitPage.getHeader().equals("Input Data")){
+            extentTest.log(LogStatus.PASS, "Data Berhasil diinput");
+        } else if (staffAbsenSakitPage.getHeader().equals("Dashboard")){
+            extentTest.log(LogStatus.PASS, "user back to dashboard page");
+        }
+    }
+    @Given("user click profile button absen sakit")
+    public void user_click_profile_button_absen_sakit(){
+        staffAbsenSakitPage.setProfile();
+        extentTest.log(LogStatus.PASS, "user click profile button");
+    }
+
+    @And("user click logout button absen sakit")
+    public void user_click_logout_button_absen_sakit(){
+        staffAbsenSakitPage.setLogoutBtn();
+        extentTest.log(LogStatus.PASS, "user click logout button");
     }
 
 

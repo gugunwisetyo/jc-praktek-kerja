@@ -46,6 +46,7 @@ Feature: Privilege Admin (Report Absen Masuk)
     Given user click privilege report absen masuk
     And user click menu report absen masuk
     And user input valid position masuk
+    And user input valid branch masuk
     And user input valid unit masuk
     And user input invalid start date masuk
     And user input valid end date masuk
@@ -75,7 +76,11 @@ Feature: Privilege Admin (Report Absen Masuk)
     And user click export data absen masuk
     Then user get validation report masuk
 
-  Scenario: user logout
-    Given user click profile button report masuk
-    And user click logout button report masuk
-    Then user meet login page
+#  TCC.TMC.085 get data table
+  Scenario: get data table
+    Given user click privilege report absen masuk
+    And user click menu report absen masuk
+    Then user get data table report masuk
+    And user click profile button report masuk
+    Then user click logout button report masuk
+
