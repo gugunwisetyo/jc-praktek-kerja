@@ -29,7 +29,15 @@ public enum TestCases {
     TMS_021("kembali ke absen pulang"),
     TMS_022("absen pulang tanpa upload selfie"),
     TMS_023("absen pulang tanpa pilih nama shift"),
-    TMS_024("absen pulang tanpa pilih tipe absen");
+    TMS_024("absen pulang tanpa pilih tipe absen"),
+
+    //module absen izin
+    TMS_025("menu priviledge staff absen izin"),
+    TMS_026("absen izin tanpa upload selfie"),
+    TMS_027("absen izin tanpa pilih nama shift"),
+    TMS_028("absen izin tanpa pilih tipe absen"),
+    TMS_029("valid absen izin"),
+    TMS_030("kembali ke halaman absen izin");
 
 
     private String testCaseName;
