@@ -7,6 +7,8 @@ public class DriverStrategyImplementer {
                 return new Chrome();
             case "firefox":
                 return new Firefox();
+            case "edge":
+                return new Edge();
             default:
                 return null;
         }
